@@ -9,7 +9,7 @@ pipeline {
     stage('Pull Code') {
       steps {
         checkout scm
-        echo '代码已拉取'
+        echo '代码已拉取-1'
       }
     }
   }
