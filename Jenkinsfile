@@ -2,32 +2,14 @@ pipeline {
   agent any
 
   triggers {
-    pollSCM('H/3 * * * *')  // 每 3 分钟拉取 GitHub 仓库一次
+    pollSCM('H/3 * * * *')  // 每 3 分钟轮询
   }
 
   stages {
-    stage('Checkout') {
+    stage('Pull Code') {
       steps {
         checkout scm
-      }
-    }
-
-    stage('Build') {
-      steps {
-        echo '构建中...'
-        // sh 'npm install' 或 'mvn clean install'
-      }
-    }
-
-    stage('Test') {
-      steps {
-        echo '测试中...'
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        echo '部署中...'
+        echo '代码已拉取'
       }
     }
   }
